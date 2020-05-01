@@ -102,9 +102,7 @@ export class QueryData<TData, TVariables> extends OperationData {
       // remove those errors from the `ObservableQuery` query store, so they
       // aren't re-displayed on subsequent (potentially error free)
       // requests/responses.
-      setTimeout(() => {
-        this.currentObservable?.resetQueryStoreErrors();
-      });
+      this.currentObservable?.resetQueryStoreErrors();
     }
 
     this.previousOptions = this.getOptions();

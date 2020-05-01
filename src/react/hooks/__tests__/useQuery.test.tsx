@@ -873,6 +873,10 @@ describe('useQuery Hook', () => {
             break;
           case 3:
             expect(loading).toBeTruthy();
+            expect(error).toBeUndefined();
+            break;
+          case 4:
+            expect(loading).toBeFalsy();
             expect(error).toBeDefined();
             expect(error!.message).toEqual('same error message');
             break;
@@ -889,7 +893,7 @@ describe('useQuery Hook', () => {
       );
 
       return wait(() => {
-        expect(renderCount).toBe(3);
+        expect(renderCount).toBe(4);
       }).then(resolve, reject);
     });
 
